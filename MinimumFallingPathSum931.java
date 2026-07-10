@@ -13,7 +13,6 @@ public class MinimumFallingPathSum931 {
         }
         return ans;
     }
-
     public static int func(int mat[][],int i,int j,int t[][]){
         if(j<0||j==mat[0].length){
             return Integer.MAX_VALUE;
