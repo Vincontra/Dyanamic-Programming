@@ -2,6 +2,11 @@ public class CherryPick2 {
     public int cherryPickup(int[][] grid) {
         int m=grid.length;
         int n=grid[0].length;
+        // Dono robot ki row will always equal as hamesha niche hi jana hai
+        // So keep it same
+        // hence only 3 states not 4
+        // lekin 4 me bhi kra to ans will be correct only
+
         int t[][][]=new int[m][n][n];
         for (int i=0;i<m;i++){
             for (int j=0;j<n;j++){
@@ -21,6 +26,10 @@ public class CherryPick2 {
         if (r>=m||c1<0||c1>=n||c2<0||c2>=n){
             return Integer.MIN_VALUE;
         }
+        // Last row
+        // Collect cherries.
+        // If both robots are on the same cell,
+        // count that cherry only once.
         if (r==m-1){
             if (c1==c2){
                 return  grid[r][c1];
@@ -37,9 +46,15 @@ public class CherryPick2 {
             curr=grid[r][c1]+grid[r][c2];
         }
         // now 9 calls
+        // Robot1 has 3 choices:
+        // left diagonal, down, right diagonal.
+        // Robot2 also has 3 choices.
+        // tot transitions=3*3=9.
+        // Among all 9 ways
+        // max cherries ko lenge
         int max=Integer.MIN_VALUE;
         for (int i=-1;i<=1;i++){
-            for (int j=-1;j<=1;j++){// this part is the way to call 9 ways instead of huge code copied this part only ; but my logic is correct
+            for (int j=-1;j<=1;j++){// this part is the way to call 9 ways instead of huge code; copied this part only ; but my logic is correct
                 max=Math.max(max,func(r+1,c1+i,c2+j,m,n,grid,t));
             }
         }
