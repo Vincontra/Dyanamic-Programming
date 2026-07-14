@@ -12,7 +12,6 @@ public class PartitionInto2SubsetswithMinSumDiff_GFG {
             }
         }
         return func(nums,0,total,nums.length,t);
-
     }
     public static int func(int arr[],int sum,int total,int n,int t[][]){
         if(n==0){
