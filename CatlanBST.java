@@ -9,7 +9,16 @@ public class CatlanBST {
             // base case:
             t[0]=1;
             t[1]=1;
-            return func(n,t);
+            //Tabulation bhi kr diya
+            t[0]=1;
+            t[1]=1;
+            for(int i=2;i<=n;i++){    // 2 se leke n tak ka catlan
+                for(int j=0;j<i;j++){
+                    t[i]+=t[j]*t[i-j-1];
+                }
+            }
+            return t[n];
+           // return func(n,t);
         }
         public static int func(int n,int t[]){
             if(n==0||n==1)return 1;
