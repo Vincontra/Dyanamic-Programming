@@ -1,5 +1,5 @@
 import java.util.*;
-class Solution {
+class Solution3 {
     public ArrayList<Integer> getLIS(int arr[]) {
         return lengthOfLIS(arr);
     }
